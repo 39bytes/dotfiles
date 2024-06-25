@@ -140,11 +140,6 @@ return { -- LSP Configuration & Plugins
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    require('lspconfig').lua_ls.setup {}
-    require('lspconfig').tailwindcss.setup {}
-    require('lspconfig').tsserver.setup {}
-    require('lspconfig').rust_analyzer.setup {}
-    require('lspconfig').clangd.setup {}
 
     local servers = {
       lua_ls = {
@@ -168,8 +163,6 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      rust_analyzer = {},
-      tsserver = {},
       tailwindcss = {},
       clangd = {},
     }
@@ -186,6 +179,8 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
+      'rust_analyzer',
+      'tsserver',
       'stylua', -- Used to format Lua code
       'prettierd',
       'clang-format',

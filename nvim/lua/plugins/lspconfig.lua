@@ -163,7 +163,7 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      css_ls = {},
+      cssls = {},
       tailwindcss = {},
       clangd = {},
       eslint = {},

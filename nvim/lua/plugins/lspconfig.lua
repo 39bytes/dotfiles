@@ -163,8 +163,11 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      css_ls = {},
       tailwindcss = {},
       clangd = {},
+      eslint = {},
+      ruff_lsp = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -184,8 +187,7 @@ return { -- LSP Configuration & Plugins
       'stylua', -- Used to format Lua code
       'prettierd',
       'clang-format',
-      'eslint-lsp',
-      'ruff-lsp',
+      'shfmt',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

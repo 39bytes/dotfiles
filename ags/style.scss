@@ -1,0 +1,88 @@
+$primary: #89dceb;
+$secondary: #f38ba8;
+$green: #a6e3a1;
+$base: #1e1e2e;
+$text-disabled: #a6adc8;
+$text: #cdd6f4;
+
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: $base;
+  padding: 3pt 8pt;
+  margin: 4pt;
+  border-radius: 4pt;
+}
+
+.logo {
+  color: $primary;
+  font-size: 16pt;
+}
+
+.clock {
+  color: $primary;
+  font-size: 12pt;
+  margin-left: 2pt;
+}
+
+.tray {
+  margin-right: 4pt;
+}
+
+menu {
+  background-color: $base;
+  border-radius: 4pt;
+  padding: 4pt 0pt;
+}
+
+menuitem {
+  color: $text;
+  padding: 0pt 12pt;
+
+  &:hover {
+    background-color: $primary;
+  }
+
+  &:disabled {
+    color: $text-disabled;
+  }
+}
+
+.audio {
+  button {
+    background: transparent;
+    border: 0pt;
+    padding: 0;
+    outline: none;
+    color: $primary,
+  }
+
+  label {
+    color: $primary,
+  }
+}
+
+.battery {
+  color: $green;
+}
+
+.workspaces {
+  label {
+    font-size: 0;
+    min-width: 7pt;
+    min-height: 7pt;
+    margin: 0pt 2pt;
+    padding: 0pt;
+    border-radius: 999pt;
+    background-color: $primary;
+
+    &.active {
+      min-width: 11pt;
+      min-height: 11pt;
+      background-color: $secondary;
+
+    }
+  }
+}

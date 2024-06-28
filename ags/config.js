@@ -1,4 +1,9 @@
-const entry = App.configDir + "/ts/main.ts";
+const entry = `${App.configDir}/ts/main.ts`;
+const scss = `${App.configDir}/style.scss`;
+const css = `/tmp/style.css`;
+
+Utils.exec(`sassc ${scss} ${css}`);
+
 const outdir = "/tmp/ags/js";
 
 try {
@@ -19,4 +24,3 @@ try {
 }
 
 export {};
-

@@ -3,15 +3,21 @@ import BatteryIndicator from "./widgets/Battery";
 import SysTray from "./widgets/Tray";
 import Workspaces from "./widgets/Workspaces";
 import Clock from "./widgets/Clock";
+import Launcher from "./widgets/Launcher";
 
 const LeftGroup = () =>
   Widget.Box({
     className: "bar",
     spacing: 12,
     hpack: "start",
-    children: [Widget.Label({ label: "󰣇", className: "logo" }), Workspaces()],
+    children: [
+      Widget.Label({
+        label: "󰣇",
+        className: "logo",
+      }),
+      Workspaces(),
+    ],
   });
-
 const RightGroup = () =>
   Widget.Box({
     className: "bar",
@@ -35,7 +41,7 @@ const Bar = (monitor = 0) =>
 
 App.config({
   style: "/tmp/style.css",
-  windows: [Bar(0)],
+  windows: [Bar(0), Launcher],
 });
 
 export {};

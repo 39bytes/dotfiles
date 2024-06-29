@@ -10,7 +10,7 @@ $text: #cdd6f4;
 }
 
 .bar {
-  background-color: $base;
+  background-color: transparentize($base, 0.6);
   padding: 3pt 8pt;
   margin: 4pt;
   border-radius: 4pt;
@@ -23,7 +23,8 @@ $text: #cdd6f4;
 
 .clock {
   color: $primary;
-  font-size: 12pt;
+  font-size: 11pt;
+  font-weight: 700;
   margin-left: 2pt;
 }
 
@@ -48,6 +49,14 @@ menuitem {
   &:disabled {
     color: $text-disabled;
   }
+}
+
+tooltip {
+  background: transparentize($base, 0.6);
+  color: $primary;
+  font-weight: 600;
+  border-radius: 4pt;
+  padding: 2pt;
 }
 
 .audio {
@@ -82,7 +91,35 @@ menuitem {
       min-width: 11pt;
       min-height: 11pt;
       background-color: $secondary;
+    }
+  }
+}
 
+.launcher {
+  background: transparentize($base, 0.1);
+  border-radius: 8pt;
+  padding: 12pt;
+
+  .search {
+    font-size: 11pt;
+    font-weight: 600;
+    color: $primary;
+
+    border: 1pt solid $primary;
+    padding: 6pt;
+    margin-bottom: 6pt;
+    border-radius: 8pt;
+  }
+
+  .app-item {
+    font-size: 11pt;
+    font-weight: 600;
+    color: $primary;
+
+    padding: 2pt 6pt;
+
+    &:focus {
+      font-size: 14pt;
     }
   }
 }

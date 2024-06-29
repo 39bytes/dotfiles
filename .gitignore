@@ -8,4 +8,9 @@
 !ags
 !mimeapps.list
 !spotify-launcher.conf
+!spicetify
+spicetify/*
+!spicetify/config-xpui.ini
+!spicetify/Extensions
+!spicetify/Themes
 !mako

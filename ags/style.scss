@@ -99,7 +99,7 @@ tooltip {
   background: transparentize($base, 0.1);
   border-radius: 8pt;
   padding: 12pt;
-  border: 1pt solid $primary;
+  border: 0.5pt solid $primary;
 
   .search {
     font-size: 11pt;

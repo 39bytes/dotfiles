@@ -41,7 +41,7 @@ const Bar = (monitor = 0) =>
 
 App.config({
   style: "/tmp/style.css",
-  windows: [Bar(0), Launcher],
+  windows: [Bar(0), Bar(1), Launcher],
 });
 
 export {};

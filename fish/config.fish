@@ -15,3 +15,4 @@ set --export PATH $BUN_INSTALL/bin $PATH
 set PATH $PATH /home/jeff/.local/bin
 
 eval "$(pyenv init -)"
+source (/usr/bin/starship init fish --print-full-init | psub)

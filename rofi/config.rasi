@@ -58,13 +58,13 @@ configuration {
 /*	xserver-i300-workaround: false;*/
 /*	completer-mode: "recursivebrowser";*/
 /*	pid: "/run/user/1000/rofi.pid";*/
-    display-window: "";
+    display-window: "";
     display-run: "";
     display-ssh: "";
-    display-drun: "Run:";
+    display-drun: "";
     display-combi: "";
     display-keys: "";
-    display-filebrowser: "";
+    display-filebrowser: "";
     display-recursivebrowser: "";
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
 /*	kb-secondary-paste: "Control+v,Insert";*/
@@ -185,6 +185,7 @@ configuration {
     alternate-active-foreground: var(blue);
     
     sky: #89dceb;
+    pink: #f5c2e7;
     background: #1e1e2edd;
     selected-background: #89dceb88;
 }
@@ -194,11 +195,12 @@ inputbox {
 }
 
 prompt {
-    text-color: var(sky);
+    text-color: @pink;
+    padding: 0px 6px;
 }
 
 sidebar {
-    border-color: var(sky);
+    border-color: @sky;
     border:       2px dash 0px 0px ;
 }
 
@@ -215,7 +217,7 @@ scrollbar {
     handle-width: 2px ;
     padding:      0;
     border:       0;
-    handle-color: var(sky);
+    handle-color: @pink;
 }
 
 window {
@@ -231,6 +233,7 @@ window {
 entry {
     placeholder: "";
     text-color: @sky;
+    vertical-align: 0.5;
 }
 
 element {
@@ -255,11 +258,23 @@ element normal.normal {
     background-color: transparent;
     text-color: var(sky);
 }
+element normal.active {
+    background-color: #f5c2e720;
+    text-color: var(sky);
+}
 element selected.normal {
-    background-color: var(selected-background);
-    text-color:       var(selected-normal-foreground);
+    background-color: #89dceb20;
+    text-color:       @sky;
+}
+element selected.active {
+    background-color: #f5c2e780;
+    text-color:       @sky;
 }
 element alternate.normal {
     background-color: transparent;
+    text-color: var(sky);
+}
+element alternate.active {
+    background-color: #f5c2e720;
     text-color: var(sky);
 }

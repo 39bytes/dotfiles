@@ -169,6 +169,7 @@ return { -- LSP Configuration & Plugins
       eslint = {},
       ruff_lsp = {},
       dockerls = {},
+      bashls = {},
     }
 
     -- Ensure the servers and tools above are installed

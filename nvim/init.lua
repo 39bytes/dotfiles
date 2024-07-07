@@ -18,5 +18,13 @@ require 'lazy-bootstrap'
 
 require 'lazy-plugins'
 
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or 'single'
+  opts.max_width = opts.max_width or 80
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -156,36 +156,9 @@ configuration {
 }
 
 * {
-    red:                         rgba ( 220, 50, 47, 100 % );
-    selected-active-foreground:  var(background);
-    lightfg:                     rgba ( 88, 104, 117, 100 % );
-    separatorcolor:              var(foreground);
-    urgent-foreground:           var(red);
-    alternate-urgent-background: var(lightbg);
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
-    background-color:            transparent;
-    border-color:                var(foreground);
-    normal-background:           var(background);
-    selected-urgent-background:  var(red);
-    alternate-active-background: var(lightbg);
-    spacing:                     2;
-    blue:                        rgba ( 38, 139, 210, 100 % );
-    alternate-normal-foreground: var(foreground);
-    urgent-background:           var(background);
-    selected-normal-foreground:  var(lightbg);
-    active-foreground:           var(blue);
-    selected-active-background:  var(blue);
-    active-background:           var(background);
-    selected-normal-background:  var(lightfg);
-    alternate-normal-background: var(lightbg);
-    foreground:                  rgba ( 0, 43, 54, 100 % );
-    selected-urgent-foreground:  var(background);
-    normal-foreground:           var(foreground);
-    alternate-urgent-foreground: var(red);
-    alternate-active-foreground: var(blue);
-    
-    sky: #89dceb;
-    pink: #f5c2e7;
+    accent: #89dceb;
+    accent2: #f5c2e7;
+    color-border: #585b70;
     background: #1e1e2edd;
     selected-background: #89dceb88;
 }
@@ -195,12 +168,12 @@ inputbox {
 }
 
 prompt {
-    text-color: @pink;
+    text-color: @accent2;
     padding: 0px 6px;
 }
 
 sidebar {
-    border-color: @sky;
+    border-color: @accent;
     border:       2px dash 0px 0px ;
 }
 
@@ -217,14 +190,14 @@ scrollbar {
     handle-width: 2px ;
     padding:      0;
     border:       0;
-    handle-color: @pink;
+    handle-color: @accent2;
 }
 
 window {
     padding: 20px;
     background-color: @background;
     border: 1px;
-    border-color: @sky;
+    border-color: @color-border;
     border-radius: 8px;
     width: 45%;
     height: 40%;
@@ -232,7 +205,7 @@ window {
 
 entry {
     placeholder: "";
-    text-color: @sky;
+    text-color: @accent;
     vertical-align: 0.5;
 }
 
@@ -256,25 +229,25 @@ element-text {
 
 element normal.normal {
     background-color: transparent;
-    text-color: var(sky);
+    text-color: @accent;
 }
 element normal.active {
     background-color: #f5c2e720;
-    text-color: var(sky);
+    text-color: @accent;
 }
 element selected.normal {
     background-color: #89dceb20;
-    text-color:       @sky;
+    text-color: @accent;
 }
 element selected.active {
     background-color: #f5c2e780;
-    text-color:       @sky;
+    text-color: @accent;
 }
 element alternate.normal {
     background-color: transparent;
-    text-color: var(sky);
+    text-color: @accent;
 }
 element alternate.active {
     background-color: #f5c2e720;
-    text-color: var(sky);
+    text-color: @accent;
 }

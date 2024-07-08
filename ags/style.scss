@@ -1,6 +1,11 @@
-$primary: #89dceb;
-$secondary: #f38ba8;
+$sky: #89dceb;
+$red: #f38ba8;
 $green: #a6e3a1;
+$yellow: #f9e2af;
+$mauve: #cba6f7;
+$lavender: #b4befe;
+$peach: #fab387;
+$surface0: #313244;
 $base: #1e1e2e;
 $text-disabled: #a6adc8;
 $text: #cdd6f4;
@@ -17,12 +22,12 @@ $text: #cdd6f4;
 }
 
 .logo {
-  color: $primary;
+  color: $sky;
   font-size: 16pt;
 }
 
 .clock {
-  color: $primary;
+  color: $sky;
   font-size: 11pt;
   font-weight: 700;
   margin-left: 2pt;
@@ -43,7 +48,7 @@ menuitem {
   padding: 0pt 12pt;
 
   &:hover {
-    background-color: $primary;
+    background-color: $sky;
   }
 
   &:disabled {
@@ -53,7 +58,7 @@ menuitem {
 
 tooltip {
   background: transparentize($base, 0.6);
-  color: $primary;
+  color: $sky;
   font-weight: 600;
   border-radius: 4pt;
   padding: 2pt;
@@ -65,11 +70,11 @@ tooltip {
     border: 0pt;
     padding: 0;
     outline: none;
-    color: $primary,
+    color: $sky,
   }
 
   label {
-    color: $primary,
+    color: $sky,
   }
 }
 
@@ -85,12 +90,12 @@ tooltip {
     margin: 0pt 2pt;
     padding: 0pt;
     border-radius: 999pt;
-    background-color: $primary;
+    background-color: $sky;
 
     &.active {
       min-width: 11pt;
       min-height: 11pt;
-      background-color: $secondary;
+      background-color: $red;
     }
   }
 }
@@ -99,14 +104,14 @@ tooltip {
   background: transparentize($base, 0.1);
   border-radius: 8pt;
   padding: 12pt;
-  border: 0.5pt solid $primary;
+  border: 0.5pt solid $sky;
 
   .search {
     font-size: 11pt;
     font-weight: 600;
-    color: $primary;
+    color: $sky;
 
-    border: 0.5pt solid $primary;
+    border: 0.5pt solid $sky;
     padding: 6pt;
     margin-bottom: 6pt;
     border-radius: 8pt;
@@ -115,12 +120,91 @@ tooltip {
   .app-item {
     font-size: 11pt;
     font-weight: 600;
-    color: $primary;
+    color: $sky;
 
     padding: 2pt 6pt;
 
     &:focus {
       font-size: 14pt;
+    }
+  }
+}
+
+.settings-button {
+  background: transparentize($base, 0.8);
+  border-radius: 4pt;
+}
+
+.settings {
+  margin: 36pt 48pt;
+
+  border-radius: 8pt;
+
+  min-width: 200pt;
+  background-color: $base;
+  padding: 16pt;
+
+  .power-button {
+    padding: 4pt;
+    border-radius: 999pt;
+    background-color: $surface0;
+
+    transition: background-color 300ms;
+  }
+
+  .sleep:hover {
+    background-color: $lavender;
+  }
+
+  .reboot:hover {
+    background-color: $peach;
+  }
+
+  .shutdown:hover {
+    background-color: $red;
+  }
+
+  .audio-slider {
+    color: $sky;
+
+    trough {
+      border: $text;
+      background-color: $surface0;
+      min-height: 6pt;
+      border-radius: 8pt;
+
+      highlight,
+      progress {
+        background-color: $sky;
+        border-radius: 8pt;
+      }
+    }
+
+    slider {
+      margin: 2pt;
+      border-radius: 8pt;
+    }
+  }
+
+
+  .brightness-slider {
+    color: $mauve;
+
+    trough {
+      background-color: $surface0;
+      min-height: 6pt;
+      border-radius: 8pt;
+
+      highlight,
+      progress {
+        background-color: $mauve;
+        border-radius: 8pt;
+      }
+    }
+
+    slider {
+      margin: 2pt;
+      border-radius: 8pt;
     }
   }
 }

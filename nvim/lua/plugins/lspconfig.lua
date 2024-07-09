@@ -170,6 +170,7 @@ return { -- LSP Configuration & Plugins
       ruff_lsp = {},
       dockerls = {},
       bashls = {},
+      astro = {},
     }
 
     -- Ensure the servers and tools above are installed

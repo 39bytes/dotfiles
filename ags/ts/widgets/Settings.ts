@@ -89,7 +89,7 @@ const PowerButtons = () =>
       PowerButton({
         icon: icons.powermenu.shutdown,
         className: "shutdown",
-        action: "systemctl shutdown",
+        action: "systemctl poweroff",
       }),
     ],
   });
@@ -102,7 +102,7 @@ export const Settings = () =>
       child: Widget.Box({
         className: "settings",
         vertical: true,
-        spacing: 12,
+        spacing: 16,
         children: [PowerButtons(), VolumeSlider(), BrightnessSlider()],
       }),
       setup: (self) =>
@@ -114,6 +114,7 @@ export const Settings = () =>
     }),
     keymode: "on-demand",
     anchor: ["top", "right"],
-    setup: (w) =>
-      w.keybind("Escape", () => App.closeWindow(SETTINGS_WINDOW_NAME)),
+    setup: (w) => {
+      w.keybind("Escape", () => App.closeWindow(SETTINGS_WINDOW_NAME));
+    },
   });

@@ -16,3 +16,9 @@ set PATH $PATH /home/jeff/.local/bin
 
 eval "$(pyenv init -)"
 source (/usr/bin/starship init fish --print-full-init | psub)
+# pnpm
+set -gx PNPM_HOME "/home/jeff/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

@@ -130,18 +130,19 @@ tooltip {
   }
 }
 
-.settings-button {
-  background: transparentize($base, 0.8);
-  border-radius: 4pt;
-}
+// .settings-button {
+//   background: transparentize($base, 0.8);
+//   border-radius: 4pt;
+// }
 
 .settings {
-  margin: 36pt 48pt;
+  margin: 36pt 24pt;
 
   border-radius: 8pt;
+  border: 1pt solid #585b70;
 
   min-width: 200pt;
-  background-color: $base;
+  background-color: transparentize($base, 0.1);
   padding: 16pt;
 
   .power-button {

@@ -5,3 +5,7 @@ x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
 application/pdf=org.pwmt.zathura.desktop
+
+[Added Associations]
+application/x-shellscript=nvim.desktop;
+text/plain=nvim.desktop;

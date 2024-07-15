@@ -15,6 +15,7 @@ const SysTray = () =>
   Widget.Box({
     className: "tray",
     spacing: 4,
+    vpack: "center",
     children: systemtray.bind("items").as((i) => i.map(SysTrayItem)),
   });
 

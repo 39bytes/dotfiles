@@ -5,6 +5,7 @@ $yellow: #f9e2af;
 $mauve: #cba6f7;
 $lavender: #b4befe;
 $peach: #fab387;
+$overlay2: #9399b2;
 $surface0: #313244;
 $base: #1e1e2e;
 $text-disabled: #a6adc8;
@@ -15,7 +16,7 @@ $text: #cdd6f4;
 }
 
 .bar {
-  background-color: transparentize($base, 0.6);
+  background-color: transparentize($overlay2, 0.85);
   padding: 3pt 8pt;
   margin: 4pt;
   border-radius: 4pt;

@@ -23,14 +23,14 @@ const RightGroup = () =>
     className: "bar",
     spacing: 4,
     hpack: "end",
+    vpack: "center",
     children: [
       SysTray(),
       Widget.EventBox({
         cursor: "pointer",
         child: Widget.Box({
           spacing: 6,
-          css: "padding: 4pt",
-          vpack: "center",
+          css: "padding: 4pt;",
           children: [VolumeIndicator(), BatteryIndicator()],
         }),
         on_primary_click: () => App.toggleWindow(SETTINGS_WINDOW_NAME),

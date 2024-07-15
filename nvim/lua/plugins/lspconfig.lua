@@ -171,6 +171,7 @@ return { -- LSP Configuration & Plugins
       dockerls = {},
       bashls = {},
       astro = {},
+      jsonls = {},
     }
 
     -- Ensure the servers and tools above are installed

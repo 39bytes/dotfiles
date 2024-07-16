@@ -6,6 +6,8 @@ $mauve: #cba6f7;
 $lavender: #b4befe;
 $peach: #fab387;
 $overlay2: #9399b2;
+$surface2: #585b70;
+$surface1: #45475a;
 $surface0: #313244;
 $base: #1e1e2e;
 $text-disabled: #a6adc8;
@@ -16,7 +18,7 @@ $text: #cdd6f4;
 }
 
 .bar {
-  background-color: transparentize($overlay2, 0.85);
+  background-color: transparentize($surface0, 0.25);
   padding: 3pt 8pt;
   margin: 4pt;
   border-radius: 4pt;
@@ -142,7 +144,7 @@ tooltip {
   border-radius: 8pt;
   border: 1pt solid #585b70;
 
-  min-width: 200pt;
+  min-width: 300px;
   background-color: transparentize($base, 0.1);
   padding: 16pt;
 
@@ -208,5 +210,59 @@ tooltip {
       margin: 2pt;
       border-radius: 8pt;
     }
+  }
+}
+
+.player {
+  font-size: 11pt;
+  font-weight: 500;
+  padding: 12px 0 6px 0;
+
+  .img {
+    min-width: 80px;
+    min-height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 13px;
+    margin-right: 1em;
+  }
+
+  button {
+    padding: 4px;
+  }
+
+  .title {
+    padding: 0;
+    margin: 0;
+  }
+
+  .artist {
+    padding: 0;
+    margin: 0;
+    color: $overlay2;
+    font-size: 10pt;
+  }
+
+  .position {
+    font-size: 9.5pt;
+  }
+
+  .length {
+    font-size: 9.5pt;
+  }
+
+  scale {
+    margin: 4px 0;
+  }
+
+  trough {
+    background-color: $surface1;
+    min-height: 6px;
+    border-radius: 8px;
+  }
+
+  highlight {
+    background-color: $lavender;
+    border-radius: 8px;
   }
 }

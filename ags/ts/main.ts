@@ -18,6 +18,7 @@ const LeftGroup = () =>
       Workspaces(),
     ],
   });
+
 const RightGroup = () =>
   Widget.Box({
     className: "bar",

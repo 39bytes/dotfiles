@@ -1,6 +1,7 @@
 import icons from "ts/icons";
 import VolumeIndicator from "./Audio";
 import brightness from "ts/services/brightness";
+import { Media } from "./Player";
 
 const audio = await Service.import("audio");
 
@@ -97,21 +98,13 @@ const PowerButtons = () =>
 export const Settings = () =>
   Widget.Window({
     name: SETTINGS_WINDOW_NAME,
-    child: Widget.Revealer({
-      transition: "none",
-      child: Widget.Box({
-        className: "settings",
-        vertical: true,
-        spacing: 16,
-        children: [PowerButtons(), VolumeSlider(), BrightnessSlider()],
-      }),
-      setup: (self) =>
-        self.hook(App, (_, wname, visible) => {
-          if (wname === SETTINGS_WINDOW_NAME) {
-            self.reveal_child = visible;
-          }
-        }),
+    child: Widget.Box({
+      className: "settings",
+      vertical: true,
+      spacing: 16,
+      children: [PowerButtons(), VolumeSlider(), BrightnessSlider(), Media()],
     }),
+    visible: false,
     keymode: "on-demand",
     anchor: ["top", "right"],
     setup: (w) => {

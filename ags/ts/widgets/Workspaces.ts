@@ -6,8 +6,6 @@ const Workspaces = () => {
     Widget.Label({
       attribute: i,
       vpack: "center",
-      // label: `${i}`,
-      // onClicked: () => switchWorkspace(i),
       setup: (self) =>
         self.hook(hyprland, () => {
           self.toggleClassName("active", hyprland.active.workspace.id === i);

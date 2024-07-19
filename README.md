@@ -10,6 +10,7 @@ Configuration files for my daily driver Linux setup.
 - **WM**: [Hyprland](https://github.com/hyprwm/Hyprland)
 - **Terminal**: [kitty](https://github.com/kovidgoyal/kitty)
 - **Shell**: [fish](https://github.com/fish-shell/fish-shell)
+- **Prompt**: [Starship](https://github.com/starship/starship)
 - **Editor**: [Neovim](https://github.com/neovim/neovim)
 - **Bar/Widgets**: [AGS](https://github.com/Aylur/ags) 
 - **File Manager**: [Yazi](https://github.com/sxyazi/yazi)

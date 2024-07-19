@@ -4,8 +4,24 @@ import brightness from "ts/services/brightness";
 import { Media } from "./Player";
 
 const audio = await Service.import("audio");
+const battery = await Service.import("battery");
 
 export const SETTINGS_WINDOW_NAME = "settings";
+
+const Battery = () =>
+  Widget.Box({
+    className: "battery",
+    spacing: 4,
+    children: [
+      Widget.Icon({
+        icon: battery.bind("icon_name"),
+      }),
+      Widget.Label({
+        css: "font-weight: 700; font-size: 10pt;",
+        label: battery.bind("percent").as((p) => `${p}%`),
+      }),
+    ],
+  });
 
 const VolumeSlider = () =>
   Widget.Box({
@@ -75,6 +91,7 @@ const PowerButton = ({ className, icon, action }: PowerButtonProps) =>
 const PowerButtons = () =>
   Widget.Box({
     spacing: 8,
+    hexpand: true,
     hpack: "end",
     children: [
       PowerButton({
@@ -102,7 +119,16 @@ export const Settings = () =>
       className: "settings",
       vertical: true,
       spacing: 16,
-      children: [PowerButtons(), VolumeSlider(), BrightnessSlider(), Media()],
+      children: [
+        Widget.Box({
+          hexpand: true,
+          vpack: "center",
+          children: [Battery(), PowerButtons()],
+        }),
+        VolumeSlider(),
+        BrightnessSlider(),
+        Media(),
+      ],
     }),
     visible: false,
     keymode: "on-demand",

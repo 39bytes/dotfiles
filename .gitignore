@@ -16,3 +16,4 @@ spicetify/*
 !rofi
 !sddm
 !starship.toml
+!firefox

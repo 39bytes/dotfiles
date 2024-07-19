@@ -11,7 +11,8 @@ Configuration files for my daily driver Linux setup.
 - **Terminal**: [kitty](https://github.com/kovidgoyal/kitty)
 - **Shell**: [fish](https://github.com/fish-shell/fish-shell)
 - **Editor**: [Neovim](https://github.com/neovim/neovim)
+- **Bar/Widgets**: [AGS](https://github.com/Aylur/ags) 
 - **File Manager**: [Yazi](https://github.com/sxyazi/yazi)
 - **Launcher**: [rofi](https://github.com/lbonn/rofi)
-- **Bar/Widgets**: [AGS](https://github.com/Aylur/ags) 
+- **Notification Daemon**: [mako](https://github.com/emersion/mako)
 

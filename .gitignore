@@ -15,4 +15,5 @@ spicetify/*
 !spicetify/Themes
 !mako
 !rofi
+!sddm
 !starship.toml

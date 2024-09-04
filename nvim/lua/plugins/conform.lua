@@ -23,8 +23,10 @@ return { -- Autoformat
       javascriptreact = { 'prettierd' },
       typescript = { 'prettierd' },
       typescriptreact = { 'prettierd' },
+      html = { 'prettierd' },
       astro = { 'prettierd' },
       python = { 'ruff_format' },
+      go = { 'gofmt' },
     },
   },
 }

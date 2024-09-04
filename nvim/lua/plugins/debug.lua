@@ -40,6 +40,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
+        'codelldb',
       },
     }
 
@@ -56,6 +57,15 @@ return {
     vim.keymap.set('n', '<leader>B', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
+
+    dap.adapters.lldb = {
+      type = 'server',
+      port = 13000,
+      executable = {
+        command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
+        args = { '--port', '13000' },
+      },
+    }
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|

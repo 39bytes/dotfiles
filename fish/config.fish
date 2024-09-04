@@ -5,6 +5,8 @@ end
 set --export VISUAL nvim
 set --export EDITOR nvim
 
+set --export GOPATH "$HOME/.go"
+
 zoxide init fish | source
 
 # bun
@@ -21,4 +23,5 @@ set -gx PNPM_HOME "/home/jeff/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
+
 # pnpm end

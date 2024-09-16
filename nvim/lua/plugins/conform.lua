@@ -27,6 +27,12 @@ return { -- Autoformat
       astro = { 'prettierd' },
       python = { 'ruff_format' },
       go = { 'gofmt' },
+      c = { 'clang_format' },
+    },
+    formatters = {
+      clang_format = {
+        prepend_args = { '--style=file', '--fallback-style=WebKit' },
+      },
     },
   },
 }

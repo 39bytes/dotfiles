@@ -189,7 +189,7 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       -- LSPs that shouldn't be autosetup by lspconfig
       'rust_analyzer',
-      'tsserver',
+      'ts_ls',
       -- Formatters
       'stylua',
       'prettierd',
@@ -211,7 +211,7 @@ return { -- LSP Configuration & Plugins
 
           require('lspconfig')[server_name].setup(server)
         end,
-        ['tsserver'] = function() end,
+        ['ts_ls'] = function() end,
         ['rust_analyzer'] = function() end,
       },
     }

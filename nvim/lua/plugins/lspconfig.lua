@@ -167,7 +167,7 @@ return { -- LSP Configuration & Plugins
       tailwindcss = {},
       clangd = {},
       eslint = {},
-      ruff_lsp = {},
+      ruff = {},
       dockerls = {},
       bashls = {},
       astro = {},

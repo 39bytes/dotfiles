@@ -1,3 +1,46 @@
+local icons = {
+  Array = ' ',
+  Boolean = '󰨙 ',
+  Class = ' ',
+  Codeium = '󰘦 ',
+  Color = ' ',
+  Control = ' ',
+  Collapsed = ' ',
+  Constant = '󰏿 ',
+  Constructor = ' ',
+  Copilot = ' ',
+  Enum = ' ',
+  EnumMember = ' ',
+  Event = ' ',
+  Field = ' ',
+  File = ' ',
+  Folder = ' ',
+  Function = '󰊕 ',
+  Interface = ' ',
+  Key = ' ',
+  Keyword = ' ',
+  Method = '󰊕 ',
+  Module = ' ',
+  Namespace = '󰦮 ',
+  Null = ' ',
+  Number = '󰎠 ',
+  Object = ' ',
+  Operator = ' ',
+  Package = ' ',
+  Property = ' ',
+  Reference = ' ',
+  Snippet = ' ',
+  String = ' ',
+  Struct = '󰆼 ',
+  Supermaven = ' ',
+  TabNine = '󰏚 ',
+  Text = ' ',
+  TypeParameter = ' ',
+  Unit = ' ',
+  Value = ' ',
+  Variable = '󰀫 ',
+}
+
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -42,6 +85,26 @@ return { -- Autocompletion
     luasnip.config.setup {}
 
     cmp.setup {
+      formatting = {
+        format = function(_, item)
+          if icons[item.kind] then
+            item.kind = icons[item.kind] .. item.kind
+          end
+
+          local widths = {
+            abbr = 40,
+            menu = 30,
+          }
+
+          for key, width in pairs(widths) do
+            if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+              item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. '…'
+            end
+          end
+
+          return item
+        end,
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)

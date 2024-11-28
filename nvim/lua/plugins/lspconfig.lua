@@ -216,6 +216,10 @@ return { -- LSP Configuration & Plugins
       },
     }
 
+    -- Gleam isn't in Mason
+    require('lspconfig').gleam.setup {}
+
+    -- Fix annoying rust_analyzer spam
     for _, method in ipairs { 'textDocument/diagnostic', 'workspace/diagnostic' } do
       local default_diagnostic_handler = vim.lsp.handlers[method]
       vim.lsp.handlers[method] = function(err, result, context, config)

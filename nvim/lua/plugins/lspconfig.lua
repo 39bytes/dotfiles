@@ -173,6 +173,7 @@ return { -- LSP Configuration & Plugins
       astro = {},
       jsonls = {},
       marksman = {},
+      zls = {},
     }
 
     -- Ensure the servers and tools above are installed

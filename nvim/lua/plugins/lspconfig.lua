@@ -196,6 +196,7 @@ return { -- LSP Configuration & Plugins
       jsonls = {},
       marksman = {},
       zls = {},
+      ruby_lsp = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -218,6 +219,7 @@ return { -- LSP Configuration & Plugins
       'prettierd',
       'clang-format',
       'shfmt',
+      'standardrb',
       -- Debugging
       'codelldb',
     })

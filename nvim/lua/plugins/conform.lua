@@ -28,6 +28,7 @@ return { -- Autoformat
       python = { 'ruff_format' },
       go = { 'gofmt' },
       c = { 'clang_format' },
+      eruby = { 'erb_format' },
     },
     formatters = {
       clang_format = {

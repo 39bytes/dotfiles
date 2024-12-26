@@ -9,6 +9,11 @@ return {
       lsp = {
         jump_to_single_result = true,
       },
+      keymap = {
+        fzf = {
+          ['ctrl-q'] = 'select-all+accept',
+        },
+      },
     }
 
     vim.keymap.set('n', '<leader><leader>', fzf.files, { desc = 'Find files' })

@@ -17,3 +17,4 @@ spicetify/*
 !sddm
 !starship.toml
 !firefox
+!tmux

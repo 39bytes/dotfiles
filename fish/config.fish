@@ -26,3 +26,7 @@ end
 
 # pnpm end
 ~/.local/bin/mise activate fish | source
+
+# >>> coursier install directory >>>
+set -gx PATH "$PATH:/home/jeff/.local/share/coursier/bin"
+# <<< coursier install directory <<<

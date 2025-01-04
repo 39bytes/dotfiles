@@ -30,5 +30,30 @@ function P(table)
   return table
 end
 
+local function bind(lhs, rhs)
+  vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
+end
+
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = 'netrw',
+  desc = 'Better mappings for netrw',
+  callback = function()
+    bind('<C-h>', '<cmd>KittyNavigateLeft<cr>')
+    bind('<C-j>', '<cmd>KittyNavigateDown<cr>')
+    bind('<C-k>', '<cmd>KittyNavigateUp<cr>')
+    bind('<C-l>', '<cmd>KittyNavigateRight<cr>')
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  callback = function()
+    bind('<C-h>', '<cmd>KittyNavigateLeft<cr>')
+    bind('<C-j>', '<cmd>KittyNavigateDown<cr>')
+    bind('<C-k>', '<cmd>KittyNavigateUp<cr>')
+    bind('<C-l>', '<cmd>KittyNavigateRight<cr>')
+  end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

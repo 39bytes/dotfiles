@@ -1,8 +1,4 @@
 return {
-  'MunsMan/kitty-navigator.nvim',
-  build = {
-    'cp navigate_kitty.py ~/.config/kitty',
-    'cp pass_keys.py ~/.config/kitty',
-  },
-  opts = { keybindings = {} },
+  'knubie/vim-kitty-navigator',
+  build = 'cp ./*.py ~/.config/kitty/',
 }

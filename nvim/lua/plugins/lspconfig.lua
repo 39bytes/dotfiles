@@ -197,6 +197,7 @@ return { -- LSP Configuration & Plugins
       marksman = {},
       zls = {},
       ruby_lsp = {},
+      texlab = {},
     }
 
     -- Ensure the servers and tools above are installed

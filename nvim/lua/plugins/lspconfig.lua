@@ -244,6 +244,7 @@ return { -- LSP Configuration & Plugins
 
     -- Gleam isn't in Mason
     require('lspconfig').gleam.setup {}
+    require('lspconfig').ocamllsp.setup {}
 
     -- Fix annoying rust_analyzer spam
     for _, method in ipairs { 'textDocument/diagnostic', 'workspace/diagnostic' } do

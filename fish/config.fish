@@ -30,3 +30,12 @@ end
 # >>> coursier install directory >>>
 set -gx PATH "$PATH:/home/jeff/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/jeff/.opam/opam-init/init.fish' && source '/home/jeff/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+# END opam configuration

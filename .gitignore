@@ -18,3 +18,4 @@ spicetify/*
 !starship.toml
 !firefox
 !tmux
+!lazygit

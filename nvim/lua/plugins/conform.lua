@@ -29,6 +29,7 @@ return { -- Autoformat
       go = { 'gofmt' },
       c = { 'clang_format' },
       eruby = { 'erb_format' },
+      ocaml = { 'ocamlformat' },
     },
     formatters = {
       clang_format = {

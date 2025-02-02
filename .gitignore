@@ -19,3 +19,4 @@ spicetify/*
 !firefox
 !tmux
 !lazygit
+!sway

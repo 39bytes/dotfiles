@@ -198,6 +198,7 @@ return { -- LSP Configuration & Plugins
       zls = {},
       ruby_lsp = {},
       texlab = {},
+      ['just-lsp'] = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -245,16 +246,49 @@ return { -- LSP Configuration & Plugins
     -- Gleam isn't in Mason
     require('lspconfig').gleam.setup {}
     require('lspconfig').ocamllsp.setup {}
+    require('lspconfig').just.setup {}
 
     -- Fix annoying rust_analyzer spam
-    for _, method in ipairs { 'textDocument/diagnostic', 'workspace/diagnostic' } do
-      local default_diagnostic_handler = vim.lsp.handlers[method]
-      vim.lsp.handlers[method] = function(err, result, context, config)
-        if err ~= nil and err.code == -32802 then
-          return
-        end
-        return default_diagnostic_handler(err, result, context, config)
-      end
-    end
+    -- for _, method in ipairs { 'textDocument/diagnostic', 'workspace/diagnostic' } do
+    --   local default_diagnostic_handler = vim.lsp.handlers[method]
+    --   vim.lsp.handlers[method] = function(err, result, context, config)
+    --     if err ~= nil and err.code == -32802 then
+    --       return
+    --     end
+    --     return default_diagnostic_handler(err, result, context, config)
+    --   end
+    -- end
+
+    -- local configs = require 'lspconfig.configs'
+    --
+    -- if not configs.just_lsp then
+    --   configs.just_lsp = {
+    --     default_config = {
+    --       cmd = { '/home/jeff/repos/just-lsp/target/x86_64-unknown-linux-gnu/debug/just-lsp' },
+    --       filetypes = { 'just' },
+    --       root_dir = function(fname)
+    --         return require('lspconfig').util.find_git_ancestor(fname)
+    --       end,
+    --       settings = {},
+    --     },
+    --   }
+    -- end
+    --
+    -- local on_attach = function(client)
+    --   client.server_capabilities.semanticTokensProvider = nil
+    --
+    --   vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    --   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    --   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    --   vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    --   vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+    -- end
+    --
+    -- local capabilities = require('blink.cmp').get_lsp_capabilities {}
+    --
+    -- require('lspconfig').just_lsp.setup {
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    -- }
   end,
 }

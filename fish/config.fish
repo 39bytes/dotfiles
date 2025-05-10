@@ -39,3 +39,5 @@ set -gx PATH "$PATH:/home/jeff/.local/share/coursier/bin"
 # This section can be safely removed at any time if needed.
 test -r '/home/jeff/.opam/opam-init/init.fish' && source '/home/jeff/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
 # END opam configuration
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/jeff/.ghcup/bin # ghcup-env

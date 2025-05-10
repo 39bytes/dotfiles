@@ -14,6 +14,7 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/discord=vesktop.desktop
+image/x-portable-pixmap=qimgv.desktop
 
 [Added Associations]
 application/x-shellscript=nvim.desktop;
@@ -31,3 +32,5 @@ application/x-extension-xht=firefox.desktop;
 image/svg+xml=firefox.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+image/x-portable-pixmap=gimp.desktop;qimgv.desktop;

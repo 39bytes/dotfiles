@@ -30,6 +30,7 @@ return { -- Autoformat
       c = { 'clang_format' },
       eruby = { 'erb_format' },
       ocaml = { 'ocamlformat' },
+      clojure = { 'zprint' },
     },
     formatters = {
       clang_format = {

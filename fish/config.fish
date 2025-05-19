@@ -4,6 +4,7 @@ end
 
 set --export VISUAL nvim
 set --export EDITOR nvim
+set --export MANPAGER 'nvim +Man!'
 
 set --export GOPATH "$HOME/.go"
 

@@ -1,5 +1,5 @@
 return {
   'mrcjkb/rustaceanvim',
-  version = '^4', -- Recommended
-  ft = { 'rust' },
+  version = '^6', -- Recommended
+  lazy = false,
 }

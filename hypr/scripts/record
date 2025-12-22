@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+wf-recorder -g "$(slurp)" \
+	--pixel-format yuv420p \
+	--audio \
+	--audio-backend=pipewire \
+	--file="$1"

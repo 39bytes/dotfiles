@@ -1,0 +1,166 @@
+// Colors
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$red: #f38ba8;
+$maroon: #eba0ac;
+$peach: #fab387;
+$yellow: #f9e2af;
+$green: #a6e3a1;
+$teal: #94e2d5;
+$sky: #89dceb;
+$sapphire: #74c7ec;
+$blue: #89b4fa;
+$lavender: #b4befe;
+$text: #cdd6f4;
+$subtext1: #bac2de;
+$subtext0: #a6adc8;
+$overlay2: #9399b2;
+$overlay1: #7f849c;
+$overlay0: #6c7086;
+$surface2: #585b70;
+$surface1: #45475a;
+$surface0: #313244;
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+.bar {
+  padding: 0 8px;
+  background-color: transparent;
+}
+
+// Workspaces
+.workspace-entry {
+  background-color: $base;
+  border: 2px solid $rosewater;
+  border-radius: 100%;
+  margin: 10px 4px;
+  min-width: 8px;
+}
+
+.workspace-entry.current {
+  background-color: $flamingo;
+}
+
+// Tray
+.tray image {
+  -gtk-icon-transform: scale(0.75);
+}
+
+// Clock
+.clock {
+  color: $rosewater;
+  font-family: Cantarell;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+// Battery
+.battery-circle {
+  color: $green;
+  min-width: 4px;
+}
+
+.charging {
+  color: $teal;
+}
+
+.low-battery {
+  color: $red;
+}
+
+.battery-tooltip {
+  color: $green;
+}
+
+// System
+.system {
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid $surface2;
+}
+
+.system-button {
+  background: transparent;
+  padding: 0px 4px;
+  font-size: 24px;
+  color: $rosewater;
+}
+
+.system-clock {
+  color: $lavender;
+  font-weight: 600;
+  font-family: FiraCode Nerd Font Mono;
+  font-size: 28px;
+}
+
+.system-date {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+scale trough {
+  all: unset;
+  background-color: $mantle;
+  border-radius: 16px;
+  min-height: 10px;
+  min-width: 70px;
+  margin: 0px 10px 0px 0px;
+}
+
+scale highlight {
+  border-radius: 16px;
+}
+
+slider {
+  all: unset;
+}
+
+.system-sliders {
+  margin-top: 12px;
+}
+
+.system-volume-slider {
+  margin-left: 20px;
+}
+
+.system-brightness-slider {
+  margin-left: 20px;
+}
+
+.power-buttons {
+  .power-button {
+    padding: 4px 8px;
+    border-radius: 100%;
+    transition: background-color 300ms;
+    font-size: 16px;
+  }
+
+  .sleep {
+    label {
+      margin-right: 2px;
+    }
+
+    &:hover {
+      background-color: $lavender;
+    }
+  }
+
+  .reboot {
+    &:hover {
+      background-color: $peach;
+    }
+  }
+
+  .shutdown {
+    label {
+      margin-right: 2px;
+    }
+
+    &:hover {
+      background-color: $red;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat songs | while read line; do
+	music_dl "$line"
+done

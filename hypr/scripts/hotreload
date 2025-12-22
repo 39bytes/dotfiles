@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+if [[ $# != 2 ]]; then
+    echo "Usage: hotreload <directory> <executable>"
+fi
+
+directory=$1
+executable=$2
+
+exec "$executable" &
+echo "Watching "$(realpath $directory)" for changes."
+
+inotifywait -mrq -e modify "$directory" | 
+    while read -r line; do
+        echo "Changes detected, reloading..."
+        pkill "$executable"
+        exec "$executable" &
+        echo "Reloaded."
+    done

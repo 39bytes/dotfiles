@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+set -e
+
+filename="$1"
+
+if [[ -z "$filename" ]]; then
+    filename="sol.cpp"
+fi
+
+rm -f a.out
+
+echo -e "${GREEN}Compiling${NC}"
+FLAGS="-Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wduplicated-cond -Wlogical-op -Winvalid-pch -fsanitize=undefined -fsanitize=address -g"
+g++ ${FLAGS} -std=c++17 $filename
+for testcase in *.txt; do
+    echo -e "${GREEN}Running $testcase${NC}"
+    ./a.out <"$testcase"
+done

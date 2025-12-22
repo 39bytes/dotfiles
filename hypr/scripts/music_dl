@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+yt-dlp -x -f bestaudio --audio-format mp3 --audio-quality 0 --embed-thumbnail \
+	--ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"" \
+	--parse-metadata "%(title)s:%(meta_album)s" \
+	--parse-metadata "%(uploader|)s:%(meta_artist)s" \
+	--add-metadata \
+	--output "%(title)s.%(ext)s" \
+	--paths ~/Music "$1"
+
+# --parse-metadata "artist:%(uploader)s" \
+# --parse-metadata "album:%(title)s" \
+# --metadata-from-title "%(artist)s - %(title)s" \

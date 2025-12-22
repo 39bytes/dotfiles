@@ -1,0 +1,7 @@
+.titlebar-close {
+    display: none !important;
+}
+
+.titlebar-spacer[type="post-tabs"] {
+    width: 0px !important;
+}

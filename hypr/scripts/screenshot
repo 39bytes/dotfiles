@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/Pictures/Screenshots
+filename=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+
+if [[ $1 == rc ]]; then
+    grimblast --freeze copy area
+    notify-send 'Screenshot copied to clipboard'
+elif [[ $1 == ri ]]; then
+    grimblast --freeze save area | swappy -f -
+elif [[ $1 == sc ]]; then
+    grimblast copy screen
+    grim - | wl-copy
+    notify-send 'Screenshot copied to clipboard'
+elif [[ $1 == si ]]; then
+    grimblast save screen | swappy -f -
+fi

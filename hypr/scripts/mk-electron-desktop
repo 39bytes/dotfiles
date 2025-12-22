@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+set -e
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: mk-electron-desktop <app-name>"
+    exit 1
+fi
+
+name=$1
+newpath=~/.local/share/applications/"$name".desktop
+
+cp /usr/share/applications/"$name".desktop "$newpath"
+echo "Created new desktop entry at $newpath"
+
+sed -i '/^Exec=/ s/$/ --ozone-platform-hint=auto/' "$newpath"
+echo "Appended electron flags successfully"

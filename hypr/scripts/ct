@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+name="$1"
+cwd=$(pwd)
+
+mkdir "$(pwd)/$name"
+cp ~/scripts/templates/cp-template.cpp "$(pwd)/$name/sol.cpp"
+cp ~/scripts/templates/debugging.h "$(pwd)/$name/debugging.h"
+cd "$name"

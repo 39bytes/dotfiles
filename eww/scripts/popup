@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+name="$1"
+
+if [[ "$name" != "system" ]]; then
+    exit 1
+fi
+
+lock_file="$HOME/.cache/eww-$name.lock"
+if [[ ! -f "$lock_file" ]]; then
+    touch "$lock_file"
+    eww open system
+else
+    eww close system
+    rm "$lock_file"
+fi

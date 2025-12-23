@@ -2,15 +2,15 @@
 
 name="$1"
 
-if [[ "$name" != "system" ]]; then
+if [[ "$name" != "system" && "$name" != "tray" ]]; then
     exit 1
 fi
 
 lock_file="$HOME/.cache/eww-$name.lock"
 if [[ ! -f "$lock_file" ]]; then
     touch "$lock_file"
-    eww open system
+    eww open "$name"
 else
-    eww close system
+    eww close "$name"
     rm "$lock_file"
 fi

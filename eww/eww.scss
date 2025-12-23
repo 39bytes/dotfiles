@@ -38,11 +38,16 @@ $crust: #11111b;
   border-radius: 100%;
   margin: 10px 4px;
   min-width: 8px;
+
+  &.current {
+    background-color: $flamingo;
+  }
+
+  &.empty {
+    border: 2px solid transparentize($rosewater, 0.5);
+  }
 }
 
-.workspace-entry.current {
-  background-color: $flamingo;
-}
 
 // Tray
 .tray image {
@@ -80,6 +85,7 @@ $crust: #11111b;
   border-radius: 8px;
   padding: 20px;
   border: 1px solid $surface2;
+  font-family: FiraCode Nerd Font Mono;
 }
 
 .system-button {
@@ -92,7 +98,6 @@ $crust: #11111b;
 .system-clock {
   color: $lavender;
   font-weight: 600;
-  font-family: FiraCode Nerd Font Mono;
   font-size: 28px;
 }
 
@@ -122,27 +127,31 @@ slider {
   margin-top: 12px;
 }
 
-.system-volume-slider {
-  margin-left: 20px;
+.system-volume {
+  font-size: 28px;
+
+  .system-volume-slider {
+    margin-left: 12px;
+  }
 }
 
-.system-brightness-slider {
-  margin-left: 20px;
+.system-brightness {
+  font-size: 28px;
+
+  .system-brightness-slider {
+    margin-left: 12px;
+  }
 }
 
 .power-buttons {
   .power-button {
-    padding: 4px 8px;
+    padding: 0px 5px;
     border-radius: 100%;
     transition: background-color 300ms;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .sleep {
-    label {
-      margin-right: 2px;
-    }
-
     &:hover {
       background-color: $lavender;
     }
@@ -155,12 +164,21 @@ slider {
   }
 
   .shutdown {
-    label {
-      margin-right: 2px;
-    }
-
     &:hover {
       background-color: $red;
     }
   }
+}
+
+// Tray
+.tray-button {
+  padding: 0 4px;
+  background-color: transparent;
+  color: $rosewater;
+}
+
+.tray {
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid $surface0;
 }

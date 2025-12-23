@@ -5,20 +5,23 @@
 
 (defwidget clock [] (label :text time :class "clock"))
 
-(deflisten active-workspace :initial "1" "./scripts/get-active-workspace")
-(defvar workspaces `[1,2,3,4,5,6,7,8,9,10]`)
+(deflisten active-workspace :initial "1" `./scripts/get-active-workspace`)
+(deflisten workspaces :initial "[]" `./scripts/get-workspaces`)
+;; (defvar workspaces "[1,2,3,4,5,6,7,8,9,10]")
   
 (defwidget workspaces []
   (box :hexpand false
        :space-evenly true
        :class "workspaces"
-       (for id in workspaces
+       (label :text "${workspaces}${active-workspace}" :visible false)
+       (for workspace in workspaces
            (box 
-             :width "0"
-             :class "workspace-entry ${id == active-workspace ? "current" : ""}"))
+              :class `workspace-entry ${workspace.id == active-workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}`
+             ))
   ))
 
-(defpoll battery :interval "15s"
+(defpoll battery :interval "2s"
+                 :initial "100"
   `cat /sys/class/power_supply/BAT1/capacity`)
 
 (defpoll battery-status :interval "5s"
@@ -36,11 +39,6 @@
                                                   battery < 20 ? "low-battery" : ""}"
       )
   ))
-
-(defwidget tray []
-  (box :class "tray"
-       :space-evenly false
-    (systray)))
 
 (defwidget system-button []
   (button :onclick "$HOME/.config/eww/scripts/popup system"
@@ -103,12 +101,50 @@
        (button :onclick "systemctl shutdown" :class "power-button shutdown" "")
        ))
 
+;; (defvar total-mem 
+;;   `free -m | grep Mem: | awk '{ print $2 }'`)
+;; (defpoll used-mem :interval "5s" 
+;;   `free -m | grep Mem: | awk '{ print $3 }'`)
+;;
+;; (defwidget system-resource-usage []
+;;   (box :orientation "h"
+;;        :class "system-resource-usage"
+;;        (box :orientation "v"
+;;          (circular-progress :value 100 :thickness 4)
+;;          "CPU")
+;;        (box :orientation "v"
+;;          (circular-progress :value 100 :thickness 4)
+;;          "RAM")
+;;        (box :orientation "v"
+;;          (circular-progress :value 100 :thickness 4)
+;;          "DISK")
+;;        ))
+
+(defwidget tray-button []
+  (button :class "tray-button"
+          :space-evenly false
+          :onclick "./scripts/popup tray"
+    ""))
+
+(defwindow tray
+  :monitor 1
+  :geometry (geometry :width "32px"
+                      :height "32px"
+                      :x "12px"
+                      :y "0px"
+                      :anchor "top right")
+  :stacking "fg"
+  (box :class "tray"
+       :orientation "h"
+    (systray))
+  )
+
 (defwindow system
   :monitor 1
   :geometry (geometry :width "324px"
+                      :height "100px"
                       :x "12px"
                       :y "12px"
-                      :height "100px"
                       :anchor "top left")
   :stacking "fg"
   (box :class "system"
@@ -121,7 +157,7 @@
       )
       (box
         :orientation "v"
-        :spacing 20
+        :spacing 4
         :class "system-sliders"
         (system-volume)
         (system-brightness)
@@ -144,7 +180,7 @@
    (box :halign "end"
         :spacing "8"
         :space-evenly false
-     (tray)
+     (tray-button)
      (battery)
    )
  ))

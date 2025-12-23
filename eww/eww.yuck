@@ -127,7 +127,6 @@
     ""))
 
 (defwindow tray
-  :monitor 1
   :geometry (geometry :width "32px"
                       :height "32px"
                       :x "12px"
@@ -140,7 +139,6 @@
   )
 
 (defwindow system
-  :monitor 1
   :geometry (geometry :width "324px"
                       :height "100px"
                       :x "12px"

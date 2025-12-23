@@ -9,7 +9,7 @@ fi
 lock_file="$HOME/.cache/eww-$name.lock"
 if [[ ! -f "$lock_file" ]]; then
     touch "$lock_file"
-    eww open "$name"
+    eww open $name --screen $(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name')
 else
     eww close "$name"
     rm "$lock_file"

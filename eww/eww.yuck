@@ -5,8 +5,8 @@
 
 (defwidget clock [] (label :text time :class "clock"))
 
-(deflisten active-workspace :initial "1" `./scripts/get-active-workspace`)
-(deflisten workspaces :initial "[]" `./scripts/get-workspaces`)
+(deflisten active-workspace `./scripts/get-active-workspace`)
+(deflisten workspaces `./scripts/get-workspaces`)
   
 (defwidget workspaces []
   (box :hexpand false

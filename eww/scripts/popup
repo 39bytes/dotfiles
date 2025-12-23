@@ -2,7 +2,7 @@
 
 name="$1"
 
-if [[ "$name" != "system" && "$name" != "tray" ]]; then
+if [[ "$name" != "system" && "$name" != "tray" && "$name" != "pomo" ]]; then
     exit 1
 fi
 

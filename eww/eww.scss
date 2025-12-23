@@ -182,3 +182,53 @@ slider {
   border-radius: 12px;
   border: 1px solid $surface0;
 }
+
+// Pomo
+.pomo-button {
+  padding: 0 8px;
+  background-color: transparent;
+
+  &.focus {
+    color: $red;
+  }
+
+  &.break {
+    color: $teal;
+  }
+
+  .timer-text {
+    font-family: FiraCode Nerd Font Mono;
+    font-size: 14px;
+  }
+
+  font-size: 20px;
+}
+
+.pomo {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid $surface2;
+  font-size: 20px;
+  font-family: FiraCode Nerd Font Mono;
+  color: $rosewater;
+
+  .pomo-timer {
+    background-color: $surface0;
+
+    &.break {
+      color: $teal;
+    }
+  }
+
+  .pomo-timer-button {
+    background-color: $surface0;
+  }
+
+  .pomo-config-option {
+    min-width: 72px;
+  }
+
+  .options {
+    font-size: 14px;
+  }
+}

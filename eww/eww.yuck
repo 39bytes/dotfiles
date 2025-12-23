@@ -7,7 +7,6 @@
 
 (deflisten active-workspace :initial "1" `./scripts/get-active-workspace`)
 (deflisten workspaces :initial "[]" `./scripts/get-workspaces`)
-;; (defvar workspaces "[1,2,3,4,5,6,7,8,9,10]")
   
 (defwidget workspaces []
   (box :hexpand false
@@ -122,14 +121,13 @@
 
 (defwidget tray-button []
   (button :class "tray-button"
-          :space-evenly false
           :onclick "./scripts/popup tray"
     ""))
 
 (defwindow tray
   :geometry (geometry :width "32px"
                       :height "32px"
-                      :x "12px"
+                      :x "32px"
                       :y "0px"
                       :anchor "top right")
   :stacking "fg"
@@ -138,11 +136,86 @@
     (systray))
   )
 
+(defvar focus-minutes `[20,25,30,45,60]`)
+(defvar break-minutes `[5,10,15,20,25]`)
+(deflisten pomo-state
+  `./scripts/pomo-server.py`)
+
+(defwidget pomo-button []
+  (button :class "pomo-button ${pomo-state.timer_kind == "focus" ? "focus" : "break"}"
+          :onclick "./scripts/popup pomo"
+    (box :space-evenly false
+         :spacing 12
+      (label :text "" :class "pomo-icon")
+      (label :text {pomo-state.timer} 
+             :visible {pomo-state.pause_state == "running"}
+             :class "timer-text"))
+    ))
+
+
+(defwindow pomo
+  :geometry (geometry :width "256px"
+                      :height "256px"
+                      :x "12px"
+                      :y "0px"
+                      :anchor "top right")
+  :stacking "fg"
+  (box :class "pomo"
+       :orientation "v"
+       :space-evenly false
+       :spacing 16
+       (box :orientation "v"
+            :space-evenly false
+            :class "options"
+           (box
+             :space-evenly false
+             (label :text "Focus mins: ")
+             (combo-box-text :items focus-minutes
+                             :halign "end"
+                             :onchange `echo '{"type": "update", "focus_mins": {}}' > pomo_pipe`
+                             :class "pomo-config-option"
+                             {pomo-state.focus_mins})
+           )
+           (box
+             :space-evenly false
+             (label :text "Break mins: ")
+             (combo-box-text :items break-minutes
+                             :halign "end"
+                             :onchange `echo '{"type": "update", "break_mins": {}}' > pomo_pipe`
+                             :class "pomo-config-option"
+                             {pomo-state.break_mins})
+           )
+        )
+       (circular-progress 
+         :class "pomo-timer ${pomo-state.timer_kind}"
+         :height 128 
+         :value {pomo-state.percentage}
+         :thickness 12 
+         {pomo-state.timer})
+       (button 
+         :class "pomo-timer-button"
+         :valign "end" 
+         :visible {pomo-state.pause_state == "running"}
+         :onclick `echo '{"type": "pause"}' > pomo_pipe`
+         "Pause")
+       (button 
+         :class "pomo-timer-button"
+         :valign "end" 
+         :visible {pomo-state.pause_state == "paused" || pomo-state.pause_state == "not_started"}
+         :onclick `echo '{"type": "start"}' > pomo_pipe`
+         {pomo-state.pause_state == "paused" ? "Resume" : "Start"})
+       (button 
+         :class "pomo-timer-button"
+         :valign "end" 
+         :visible {pomo-state.pause_state == "paused"}
+         :onclick `echo '{"type": "cancel"}' > pomo_pipe`
+         "Cancel")))
+
 (defwindow system
   :geometry (geometry :width "324px"
                       :height "100px"
-                      :x "12px"
-                      :y "12px"
+                      :x "8px"
+                      :y "0px"
                       :anchor "top left")
   :stacking "fg"
   (box :class "system"
@@ -176,9 +249,10 @@
    )
    (clock)
    (box :halign "end"
-        :spacing "8"
+        :spacing 8
         :space-evenly false
      (tray-button)
+     (pomo-button)
      (battery)
    )
  ))

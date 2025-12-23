@@ -97,7 +97,7 @@
        (button :onclick "systemctl suspend" :class "power-button sleep"
                (label :halign "center" :text ""))
        (button :onclick "reboot" :class "power-button reboot" "")
-       (button :onclick "systemctl shutdown" :class "power-button shutdown" "")
+       (button :onclick "systemctl poweroff" :class "power-button shutdown" "")
        ))
 
 ;; (defvar total-mem 

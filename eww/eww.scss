@@ -221,7 +221,12 @@ slider {
   }
 
   .pomo-timer-button {
-    background-color: $surface0;
+    background-color: $mantle;
+    border: 1px solid $surface0;
+
+    &:hover {
+      background-color: $base;
+    }
   }
 
   .pomo-config-option {

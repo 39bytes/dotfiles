@@ -148,7 +148,7 @@
          :spacing 12
       (label :text "" :class "pomo-icon")
       (label :text {pomo-state.timer} 
-             :visible {pomo-state.pause_state == "running"}
+             :visible {pomo-state.pause_state != "not_started"}
              :class "timer-text"))
     ))
 

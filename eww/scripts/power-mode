@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+current=$(powerprofilesctl get)
+if [[ "$current" == "performance" ]]; then
+    eww update power-profile="balanced"
+    powerprofilesctl set balanced
+elif [[ "$current" == "balanced" ]]; then
+    eww update power-profile="power-saver"
+    powerprofilesctl set power-saver
+else
+    eww update power-profile="performance"
+    powerprofilesctl set performance
+fi

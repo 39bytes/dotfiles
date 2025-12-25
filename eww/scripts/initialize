@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+eww update power-profile=$(powerprofilesctl get)
+rm ~/.cache/eww*.lock

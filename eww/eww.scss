@@ -63,13 +63,27 @@ $crust: #11111b;
 }
 
 // Battery
+.battery-widget {
+  padding: 0 6px;
+  background: transparent;
+
+  &:hover {
+    background: transparentize($green, 0.9);
+  }
+}
+
 .battery-circle {
   color: $green;
   min-width: 4px;
+
+  .battery-power-mode {
+    font-size: 9px;
+    margin-right: 1px;
+  }
 }
 
 .charging {
-  color: $teal;
+  color: $pink;
 }
 
 .low-battery {
@@ -90,7 +104,10 @@ $crust: #11111b;
 
 .system-button {
   background: transparent;
-  padding: 0px 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 4px;
+  padding-right: 8px;
   font-size: 24px;
   color: $rosewater;
 }
@@ -172,7 +189,7 @@ slider {
 
 // Tray
 .tray-button {
-  padding: 0 4px;
+  padding: 0 8px;
   background-color: transparent;
   color: $rosewater;
 }

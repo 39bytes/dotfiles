@@ -26,23 +26,32 @@
 (defpoll battery-status :interval "5s"
   `cat /sys/class/power_supply/BAT1/status`)
 
+(defvar power-profile "balanced")
+
 (defwidget battery []
-    (box :class "battery-widget" 
-         :vexpand "false" 
-         :hexpand "false" 
-         :width 20
-         :tooltip "${battery}% ${battery-status == "Charging" ? "(Charging)" : ""}"
+  (eventbox :cursor "pointer"
+    (button :class "battery-widget" 
+            :vexpand "false" 
+            :hexpand "false" 
+            :width 32
+            :tooltip "${battery}% ${battery-status == "Charging" ? "(Charging)" : ""}"
+            :onclick "./scripts/power-mode &"
       (circular-progress :value battery
                          :thickness "4"
                          :class "battery-circle ${battery-status == "Charging" || battery == 100 ? "charging" :
                                                   battery < 20 ? "low-battery" : ""}"
+                         (label :text {power-profile == "performance" ? "󰓅" : 
+                                       power-profile == "power-saver" ? "󰌪" :
+                                       ""}
+                                :class "battery-power-mode")
       )
-  ))
+  )))
 
 (defwidget system-button []
-  (button :onclick "$HOME/.config/eww/scripts/popup system"
-          :class "system-button"
-          "󰄛"))
+  (eventbox :cursor "pointer"
+    (button :onclick "$HOME/.config/eww/scripts/popup system"
+            :class "system-button"
+            "󰄛")))
 
 (defwidget system-clock []
   (box :orientation "v" 
@@ -120,9 +129,10 @@
 ;;        ))
 
 (defwidget tray-button []
-  (button :class "tray-button"
-          :onclick "./scripts/popup tray"
-    ""))
+  (eventbox :cursor "pointer"
+    (button :class "tray-button"
+            :onclick "./scripts/popup tray"
+      "")))
 
 (defwindow tray
   :geometry (geometry :width "32px"
@@ -142,15 +152,16 @@
   `./scripts/pomo-server.py`)
 
 (defwidget pomo-button []
-  (button :class "pomo-button ${pomo-state.timer_kind == "focus" ? "focus" : "break"}"
-          :onclick "./scripts/popup pomo"
-    (box :space-evenly false
-         :spacing 12
-      (label :text "" :class "pomo-icon")
-      (label :text {pomo-state.timer} 
-             :visible {pomo-state.pause_state != "not_started"}
-             :class "timer-text"))
-    ))
+  (eventbox :cursor "pointer"
+    (button :class "pomo-button ${pomo-state.timer_kind == "focus" ? "focus" : "break"}"
+            :onclick "./scripts/popup pomo"
+      (box :space-evenly false
+           :spacing 12
+        (label :text "" :class "pomo-icon")
+        (label :text {pomo-state.timer} 
+               :visible {pomo-state.pause_state != "not_started"}
+               :class "timer-text"))
+      )))
 
 
 (defwindow pomo
@@ -226,10 +237,9 @@
         (system-clock)
         (power-buttons)
       )
-      (box
-        :orientation "v"
-        :spacing 4
-        :class "system-sliders"
+      (box :orientation "v"
+           :spacing 4
+           :class "system-sliders"
         (system-volume)
         (system-brightness)
       )

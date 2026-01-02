@@ -3,11 +3,14 @@
 current=$(powerprofilesctl get)
 if [[ "$current" == "performance" ]]; then
     eww update power-profile="balanced"
+    hyprctl keyword monitor eDP-1,2560x1600@60,1920x0,1.6
     powerprofilesctl set balanced
 elif [[ "$current" == "balanced" ]]; then
     eww update power-profile="power-saver"
+    hyprctl keyword monitor eDP-1,2560x1600@60,1920x0,1.6
     powerprofilesctl set power-saver
 else
     eww update power-profile="performance"
+    hyprctl keyword monitor eDP-1,2560x1600@120,1920x0,1.6
     powerprofilesctl set performance
 fi

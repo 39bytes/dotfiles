@@ -16,8 +16,10 @@ source (/usr/bin/starship init fish --print-full-init | psub)
 #    # smth smth
 #end
 
+alias ls='eza -al --no-user --color=always --group-directories-first --icons'
+
 # pnpm
-set -gx PNPM_HOME "/home/j/.local/share/pnpm"
+set -gx PNPM_HOME "/home/solitus/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end

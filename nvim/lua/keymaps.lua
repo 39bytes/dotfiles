@@ -23,6 +23,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+vim.keymap.set('n', '<leader>jj', function()
+  -- Opens jjui in a floating terminal, rooted in your project directory
+
+  Snacks.terminal('jjui', { cwd = vim.fs.root(0, '.jj') })
+end, { desc = 'Jujutsu UI' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

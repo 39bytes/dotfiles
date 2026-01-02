@@ -1,71 +1,59 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  branch = 'main',
+  version = false,
+  lazy = false,
   build = ':TSUpdate',
   config = function(_, opts)
-    local ts = require 'nvim-treesitter'
-    ts.install {
+    local ensure_installed = {
       'bash',
-      'sh',
       'c',
+      'diff',
       'html',
       'javascript',
+      'jsdoc',
       'json',
+      'jsonc',
       'lua',
       'luadoc',
-      'python',
+      'luap',
       'markdown',
+      'markdown_inline',
+      'printf',
+      'python',
+      'query',
       'regex',
-      'rust',
+      'toml',
       'tsx',
       'typescript',
       'vim',
       'vimdoc',
+      'xml',
+      'yaml',
     }
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    local ts = require 'nvim-treesitter'
+    local already_installed = require('nvim-treesitter.config').get_installed()
+    local to_install = vim
+      .iter(ensure_installed)
+      :filter(function(parser)
+        return not vim.tbl_contains(already_installed, parser)
+      end)
+      :totable()
 
-    -- ---@diagnostic disable-next-line: missing-fields
-    -- require('nvim-treesitter.configs').setup(opts)
-
-    ---@type fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?
-    local install_parser_and_enable_features = function(event)
-      local lang = event.match
-
-      -- Try to start the parser install for the language.
-      local ok, task = pcall(ts.install, { lang }, { summary = true })
-      if not ok then
-        return
-      end
-
-      -- Wait for the installation to finish (up to 10 seconds).
-      task:wait(10000)
-
-      -- Enable syntax highlighting for the buffer
-      ok, _ = pcall(vim.treesitter.start, event.buf, lang)
-      if not ok then
-        return
-      end
-
-      -- Enable other features as needed.
-
-      -- Enable indentation based on treesitter for the buffer.
-      -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
-      -- Enable folding based on treesitter for the buffer.
-      -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    end
-
-    -- Install missing parsers on file open.
+    ts.install(to_install)
     vim.api.nvim_create_autocmd('FileType', {
-      group = vim.api.nvim_create_augroup('ui.treesitter', { clear = true }),
-      pattern = { '*' },
-      callback = install_parser_and_enable_features,
+      desc = 'User: enable treesitter highlighting',
+      callback = function(ctx)
+        -- highlights
+        local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
+
+        -- indent
+        local noIndent = {}
+        if hasStarted and not vim.list_contains(noIndent, ctx.match) then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
     })
   end,
 }

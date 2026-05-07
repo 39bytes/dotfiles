@@ -29,8 +29,13 @@ vim.keymap.set('n', '<leader>jj', function()
   Snacks.terminal('jjui', { cwd = vim.fs.root(0, '.jj') })
 end, { desc = 'Jujutsu UI' })
 
+vim.api.nvim_create_user_command('CopyPath', function()
+  vim.fn.setreg('+', vim.fn.expand '%')
+  vim.notify('Copied: ' .. vim.fn.expand '%')
+end, { desc = 'Copy current file path to clipboard' })
+
 -- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
+-- See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

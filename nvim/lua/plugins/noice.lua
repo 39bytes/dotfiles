@@ -19,11 +19,11 @@ return {
       },
       documentation = {
         opts = {
-          lang = 'markdown',
-          replace = true,
-          render = 'plain',
-          format = { '{message}' },
-          win_options = { concealcursor = 'n', conceallevel = 3 },
+          -- lang = 'markdown',
+          -- replace = true,
+          -- render = 'plain',
+          -- format = { '{message}' },
+          -- win_options = { concealcursor = 'n', conceallevel = 3 },
           size = {
             max_width = 80,
           },

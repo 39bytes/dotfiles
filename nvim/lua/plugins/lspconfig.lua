@@ -125,13 +125,6 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            typeCheckingMode = 'standard',
-          },
-        },
-      },
       cssls = {},
       tailwindcss = {},
       clangd = {},
@@ -143,6 +136,7 @@ return { -- LSP Configuration & Plugins
       jsonls = {},
       marksman = {},
       tinymist = {},
+      ty = {},
       ['just-lsp'] = {},
     }
 

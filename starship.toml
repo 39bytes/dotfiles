@@ -33,17 +33,6 @@ detect_folders = [".jj", ".git"]
 shell = ["sh"]
 format = "$output "
 
-
-# [git_branch]
-# symbol = " "
-# style = "bold lavender"
-#
-# [git_commit]
-# commit_hash_length = 4
-#
-# [git_status]
-# style = "bold green"
-
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"

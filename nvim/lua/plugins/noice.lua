@@ -30,6 +30,16 @@ return {
         },
       },
     },
+    routes = {
+      {
+        filter = {
+          event = 'lsp',
+          kind = 'progress',
+          find = 'jdtls',
+        },
+        opts = { skip = true },
+      },
+    },
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search
       command_palette = true, -- position the cmdline and popupmenu together

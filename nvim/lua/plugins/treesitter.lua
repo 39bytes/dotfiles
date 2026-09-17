@@ -13,6 +13,7 @@ return { -- Highlight, edit, and navigate code
       'javascript',
       'jsdoc',
       'json',
+      'llvm',
       'lua',
       'luadoc',
       'luap',

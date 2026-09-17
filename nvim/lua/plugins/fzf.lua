@@ -14,6 +14,7 @@ return {
           ['ctrl-q'] = 'select-all+accept',
         },
       },
+      fzf_colors = true,
     }
 
     vim.keymap.set('n', '<leader><leader>', fzf.files, { desc = 'Find files' })
